@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "some-pkg": "/shared.js"
+        }
+      }
+    </script>
+    <link rel="modulepreload" href="/shared.js" />
+    <!-- Non-self-closing modulepreload link to test regex fix -->
+    <link rel="modulepreload" crossorigin href="/main.js" />
+    <script type="module" src="/main.js"></script>
+  </head>
+</html>
