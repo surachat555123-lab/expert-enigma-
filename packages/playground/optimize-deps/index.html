@@ -1,0 +1,40 @@
+<h1>Optimize Deps</h1>
+
+<h2>CommonJS w/ named imports (react)</h2>
+<div class="cjs"></div>
+<script type="module" src="./cjs.js"></script>
+
+<h2>CommonJS dynamic import (react)</h2>
+<div class="cjs-dynamic"></div>
+<script type="module" src="./cjs-dynamic.js"></script>
+
+<h2>Dedupe (dep in linked & optimized package)</h2>
+<div class="dedupe"></div>
+<script type="module" src="./dedupe.js"></script>
+
+<h2>CommonJS w/ browser field mapping (axios)</h2>
+<div>This should show ping: <span class="cjs-browser-field"></span></div>
+
+<h2>Detecting linked src package and optimizing its deps (lodash-es)</h2>
+<div>This should show fooBarBaz: <span class="deps-linked"></span></div>
+
+<h2>Optimizing force included dep even when it's linked</h2>
+<div class="force-include"></div>
+
+<h2>Dep w/ speical file format supported via plugins</h2>
+<div class="plugin"></div>
+
+<script type="module">
+  import axios from 'axios'
+
+  axios.get('/ping').then((res) => {
+    document.querySelector('.cjs-browser-field').textContent = res.data
+  })
+
+  import { camelCase } from 'optimize-deps-linked'
+  document.querySelector('.deps-linked').textContent = camelCase('foo-bar-baz')
+
+  import { msg, VueSFC } from 'optimize-deps-linked-include'
+  document.querySelector('.force-include').textContent = msg
+  document.querySelector('.plugin').textContent = VueSFC.render()
+</script>
