@@ -1,0 +1,56 @@
+{
+  "name": "@vitejs/css-modules",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./lightningcss": "./dist/lightningcss/index.mjs",
+    "./postcss": "./dist/postcss/index.mjs"
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "peerDependencies": {
+    "lightningcss": "^1.21.0",
+    "postcss": "^8.4.35"
+  },
+  "peerDependenciesMeta": {
+    "lightningcss": {
+      "optional": true
+    },
+    "postcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
+    "generic-names": "^4.0.0",
+    "icss-utils": "^5.1.0",
+    "lodash.camelcase": "^4.3.0",
+    "magic-string": "^0.30.8",
+    "postcss-modules-extract-imports": "^3.0.0",
+    "postcss-modules-local-by-default": "^4.0.4",
+    "postcss-modules-scope": "^3.1.1",
+    "postcss-modules-values": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/icss-utils": "^5.1.2",
+    "@types/lodash.camelcase": "^4.3.9",
+    "@types/node": "^20.11.25",
+    "@types/postcss-modules-extract-imports": "^3.0.5",
+    "@types/postcss-modules-local-by-default": "^4.0.2",
+    "@types/postcss-modules-scope": "^3.0.4",
+    "@types/postcss-modules-values": "^4.0.2",
+    "lightningcss": "^1.24.1",
+    "postcss": "^8.4.35"
+  }
+}
