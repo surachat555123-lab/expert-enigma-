@@ -1,0 +1,39 @@
+import path from 'node:path'
+import { defineConfig } from 'vite'
+import { getWindows83ShortNameForDotEnv } from './windows83Filename'
+
+const BASE = '/base/'
+
+export default defineConfig({
+  base: BASE,
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/index.html'),
+      },
+    },
+    outDir: 'dist/base',
+  },
+  server: {
+    fs: {
+      strict: true,
+      allow: [path.resolve(__dirname, 'src')],
+    },
+    hmr: {
+      overlay: false,
+    },
+    headers: {
+      'x-served-by': 'vite',
+    },
+  },
+  preview: {
+    headers: {
+      'x-served-by': 'vite',
+    },
+  },
+  define: {
+    ROOT: JSON.stringify(path.dirname(__dirname).replace(/\\/g, '/')),
+    BASE: JSON.stringify(BASE),
+    DOTENV83SHORTNAME: JSON.stringify(getWindows83ShortNameForDotEnv()),
+  },
+})
