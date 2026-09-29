@@ -1,0 +1,22 @@
+{
+  "name": "@vitejs/monorepo-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs": "vitepress dev",
+    "docs-build": "vitepress build",
+    "docs-serve": "vitepress serve"
+  },
+  "devDependencies": {
+    "@shikijs/vitepress-twoslash": "^3.21.0",
+    "@types/express": "^5.0.6",
+    "@voidzero-dev/vitepress-theme": "^4.0.4",
+    "feed": "^5.2.0",
+    "markdown-it-image-size": "^15.0.1",
+    "vitepress": "^2.0.0-alpha.15",
+    "vitepress-plugin-group-icons": "^1.6.5",
+    "vitepress-plugin-llms": "^1.9.3",
+    "vue": "^3.5.30",
+    "vue-tsc": "^3.1.5"
+  }
+}
